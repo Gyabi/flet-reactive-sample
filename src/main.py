@@ -1,6 +1,7 @@
 import flet as ft
 from controls.num_display import NumDisplay
 from controls.navigation.navigation_drawer import NavigationView, NavigationData
+from controls.common.ping_row import PingRow
 
 def main(page: ft.Page):
     page.title = "sample app"
@@ -14,7 +15,7 @@ def main(page: ft.Page):
     
     # ダミー画面をインスタンス化
     dummy_page = ft.Column(
-        controls=[ft.Text("Dummy page")]
+        controls=[ft.Text("Dummy page"), PingRow()]
     )
     
     # 画面の定義
