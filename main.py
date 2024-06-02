@@ -1,7 +1,7 @@
 import flet as ft
-from controls.num_display import NumDisplay
-from controls.navigation.navigation_drawer import NavigationView, NavigationData
-from controls.common.ping_row import PingRow
+from view.num_display.num_display import NumDisplay
+from view.navigation.navigation_rail import NavigationView, NavigationData
+from view.dummy.dummy import Dummy
 
 def main(page: ft.Page):
     page.title = "sample app"
@@ -13,29 +13,25 @@ def main(page: ft.Page):
     # NumDisplayをインスタンス化
     num_display = NumDisplay()
     
-    # ダミー画面をインスタンス化
-    dummy_page = ft.Column(
-        controls=[ft.Text("Dummy page"), PingRow()]
-    )
+    # ダミーをインスタンス化
+    dummy = Dummy()
     
-    # 画面の定義
+    # ナビゲーションメニューをインスタンス化
     nav = NavigationView(
-        navigation_datas=[
+        navigation_datas = [
             NavigationData(
-                title="Counter",
+                title="NumDisplay",
                 icon=ft.icons.ADD,
                 control=num_display,
             ),
             NavigationData(
                 title="Dummy",
                 icon=ft.icons.ADD,
-                control=dummy_page,
+                control=dummy,
             ),
         ],
-        headers=[ft.Text("sample app")],
     )
     
-    # ページに追加
     page.add(nav)
-
-ft.app(target=main)
+            
+ft.app(main)
