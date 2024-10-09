@@ -2,6 +2,7 @@ import flet as ft
 from view.num_display.num_display import NumDisplay
 from view.navigation.navigation_rail import NavigationView, NavigationData
 from view.dummy.dummy import Dummy
+from view.sample.sample_tab import SampleTab
 
 def main(page: ft.Page):
     page.title = "sample app"
@@ -16,9 +17,16 @@ def main(page: ft.Page):
     # ダミーをインスタンス化
     dummy = Dummy()
     
+    sample = SampleTab()
+    
     # ナビゲーションメニューをインスタンス化
     nav = NavigationView(
         navigation_datas = [
+            NavigationData(
+                title="Sample",
+                icon=ft.icons.ADD,
+                control=sample,
+            ),
             NavigationData(
                 title="NumDisplay",
                 icon=ft.icons.ADD,
